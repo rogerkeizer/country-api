@@ -1,0 +1,18 @@
+﻿@model System.Web.Http.Description.IApiExplorer
+
+<h1>Country API</h1>
+
+@foreach (var api in Model.ApiDescriptions)
+{
+    <h2>@api.HttpMethod @api.RelativePath</h2>
+    if (api.ParameterDescriptions.Any())
+    {
+        <h3>Parameters</h3>
+        <ul>
+            @foreach (var param in api.ParameterDescriptions)
+            {
+                <li>@param.Name (@param.Source)</li>
+            }
+        </ul>
+    }
+}
